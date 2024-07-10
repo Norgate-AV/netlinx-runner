@@ -5,28 +5,29 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 
 jobs:
-  install:
-    runs-on: windows-latest
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+    install:
+        runs-on: windows-latest
+        steps:
+            - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+            - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+            - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
 
-      - name: Check out repository code
-        uses: actions/checkout@v4
+            - name: Check out repository code
+              uses: actions/checkout@v4
 
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+            - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+            - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
-      - name: Download NetLinx Studio
-        run: wget https://adn.harmanpro.com/softwares/wares/2067_1671047488/NetLinxStudio_4_4_1915.zip
-        run: unzip NetLinxStudio_4_4_1915.zip -d NetLinxStudio_4_4_1915
+            - name: Download NetLinx Studio
+              run: |
+                  wget https://adn.harmanpro.com/softwares/wares/2067_1671047488/NetLinxStudio_4_4_1915.zip
+                  unzip NetLinxStudio_4_4_1915.zip -d NetLinxStudio_4_4_1915
 
-      - name: Install NetLinx Studio
-        run: .\NetLinxStudio_4_4_1915\NetLinxStudioSetup_4_4_1915.exe /exenoui /qn /norestart 
+            - name: Install NetLinx Studio
+              run: .\NetLinxStudio_4_4_1915\NetLinxStudioSetup_4_4_1915.exe /exenoui /qn /norestart
 
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
+            - name: List files in the repository
+              run: |
+                  ls ${{ github.workspace }}
 
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+            - run: echo "🍏 This job's status is ${{ job.status }}."
