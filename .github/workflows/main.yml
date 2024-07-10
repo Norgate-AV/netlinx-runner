@@ -20,7 +20,7 @@ jobs:
 
       - name: Download NetLinx Studio
         run: |
-          Invoke-WebRequest https://adn.harmanpro.com/softwares/wares/2067_1671047488/NetLinxStudio_4_4_1915.zip
+          Invoke-WebRequest https://adn.harmanpro.com/softwares/wares/2067_1671047488/NetLinxStudio_4_4_1915.zip -OutFile NetLinxStudio_4_4_1915.zip
           Expand-Archive -Path .\NetLinxStudio_4_4_1915.zip -DestinationPath .\NetLinxStudio_4_4_1915
 
       - name: Install NetLinx Studio
